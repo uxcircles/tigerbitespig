@@ -267,6 +267,9 @@ abbr.tag { cursor: help; }
   .concept-short { display: inline; }
   .credit { display: block; margin: 6px 0 0; }
 }
+@media (max-width: 420px) {
+  .concept-short { display: none; }
+}
 
 /* ==========================================================
    Hero
@@ -435,14 +438,14 @@ abbr.tag { cursor: help; }
 .panel { animation: fade .45s var(--ease); }
 @keyframes fade { from { opacity: 0; transform: translateY(8px); } }
 .panel-intro { display: flex; align-items: baseline; gap: 20px; flex-wrap: wrap; margin-bottom: 18px; }
-.panel-price { font-family: var(--f-mono); font-size: 15px; font-weight: 600; background: var(--ink); color: var(--paper); padding: 6px 12px; border-radius: 8px; }
-.panel-price span { opacity: .65; font-weight: 400; margin-right: 6px; }
+.panel-price { font-family: var(--f-mono); font-size: 15px; font-weight: 600; color: var(--red); }
+.panel-price span { color: var(--ink-3); font-weight: 400; margin-right: 6px; }
 .group-title { font-size: 14px; font-family: var(--f-mono); font-weight: 600; letter-spacing: .1em; text-transform: uppercase; margin: 40px 0 6px; color: var(--ink); }
 .group-title .muted { margin-left: 8px; text-transform: none; letter-spacing: 0; font-weight: 400; font-family: var(--f-body); }
 .panel > .group-title:first-child { margin-top: 0; }
 
 .items { display: grid; grid-template-columns: repeat(2, 1fr); column-gap: clamp(32px, 5vw, 72px); }
-.item { padding: 20px 0; border-bottom: 1px dashed var(--line); transition: opacity .25s; }
+.item { padding: 20px 0; border-bottom: 1px solid rgba(28, 23, 20, .08); transition: opacity .25s; }
 .item[hidden] { display: none; }
 .item-row { display: flex; align-items: baseline; gap: 14px; }
 .item-row h3 { font-size: 18px; font-weight: 700; line-height: 1.3; }
@@ -456,7 +459,7 @@ abbr.tag { cursor: help; }
 .drinks { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(28px, 4vw, 56px); }
 .drinks .items { grid-template-columns: 1fr; }
 .drinks .group-title { margin-top: 0; }
-.empty { padding: 40px; text-align: center; border: 1px dashed var(--line); border-radius: var(--radius); color: var(--ink-3); margin-top: 8px; }
+.empty { padding: 40px; text-align: center; border: 1px solid var(--line); border-radius: var(--radius); color: var(--ink-3); margin-top: 8px; }
 
 .menu-foot { display: grid; grid-template-columns: 1fr 1.3fr; gap: 24px; margin-top: 64px; }
 .set-card {
@@ -791,6 +794,38 @@ html:lang(zh-Hant) .eyebrow { letter-spacing: .2em; }
 .dish .en { margin-top: 2px; }
 @media (max-width: 900px) {
   html:lang(zh-Hant) .nav-list > li > a, html:lang(zh-Hant) .drop-toggle { font-size: 22px; }
+}
+
+/* ---------- Mobile decluttering ---------- */
+.nav-lang { display: none; }
+@media (max-width: 900px) {
+  .nav-lang { display: block; }
+  .header-actions .lang-switch { display: none; }
+}
+@media (max-width: 560px) {
+  .header-actions .btn-sm { display: none; }
+
+  .menu-head { gap: 20px; margin-bottom: 20px; }
+  .menu-head .muted { font-size: 15px; margin-top: 12px; }
+  .filters { gap: 6px; }
+  .chip { min-height: 34px; padding: 0 14px; font-size: 13.5px; }
+  .chip .tag { display: none; }
+
+  .tabs {
+    margin-bottom: 24px;
+    -webkit-mask-image: linear-gradient(90deg, #000 85%, transparent);
+            mask-image: linear-gradient(90deg, #000 85%, transparent);
+  }
+  .tabs [role="tab"] { padding: 14px 12px; font-size: 15px; }
+  .tabs [role="tab"]:last-child { margin-right: 40px; }
+  .tabs [role="tab"][aria-selected="true"]::after { left: 12px; right: 12px; }
+
+  .panel-intro { gap: 4px 12px; margin-bottom: 4px; }
+  .item { padding: 16px 0; }
+  .item-row h3 { font-size: 17px; }
+  .item p { font-size: 14.5px; }
+
+  .action-bar.is-hidden { transform: translateY(140%); }
 }
 
 @media (prefers-reduced-motion: reduce) {

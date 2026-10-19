@@ -30,7 +30,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@700;900&text=%E8%99%8E%E5%92%AC%E8%B1%AC%E7%A6%AE%E8%A8%8A%E7%87%92%E4%B8%AD%E6%96%87&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=4">
+  <link rel="stylesheet" href="styles.css?v=6">
 
   <script type="application/ld+json">
   {
@@ -116,6 +116,7 @@
           <li><a href="#catering">Catering</a></li>
           <li class="nav-mobile-only"><a href="https://tigerbitespig.giftpro.co.uk/vouchers/tiger-bites-pig-gift-voucher/" target="_blank" rel="noopener">Gift vouchers <span class="ext"><svg class="icon icon-ext" aria-hidden="true"><use href="#i-ext"/></svg></span></a></li>
           <li class="nav-mobile-only"><a href="#faq">FAQ</a></li>
+          <li class="nav-lang"><a href="zh/" lang="zh-Hant" hreflang="zh-Hant">中文版</a></li>
         </ul>
       </nav>
 
@@ -255,7 +256,7 @@
             <p class="muted">Main, vegan &amp; set menus served Mon to Sat, 12:00 to 21:00. Tell us about allergies when you order.</p>
           </div>
           <div class="filters" role="group" aria-label="Dietary filter">
-            <button class="chip is-on" data-filter="all" aria-pressed="true">Everything</button>
+            <button class="chip is-on" data-filter="all" aria-pressed="true">All</button>
             <button class="chip" data-filter="vg" aria-pressed="false"><span class="tag tag-vg">VG</span> Vegan</button>
             <button class="chip" data-filter="gf" aria-pressed="false"><span class="tag tag-gf">GF</span> Gluten-free</button>
           </div>
@@ -264,7 +265,7 @@
         <div class="tabs" role="tablist" aria-label="Menu sections" data-tabs>
           <button role="tab" id="t-bao" aria-controls="p-bao" aria-selected="true">Bao</button>
           <button role="tab" id="t-bowls" aria-controls="p-bowls" aria-selected="false" tabindex="-1">Rice bowls</button>
-          <button role="tab" id="t-small" aria-controls="p-small" aria-selected="false" tabindex="-1">Small plates &amp; salads</button>
+          <button role="tab" id="t-small" aria-controls="p-small" aria-selected="false" tabindex="-1">Small plates</button>
           <button role="tab" id="t-sides" aria-controls="p-sides" aria-selected="false" tabindex="-1">Sides</button>
           <button role="tab" id="t-drinks" aria-controls="p-drinks" aria-selected="false" tabindex="-1">Drinks</button>
         </div>
@@ -272,8 +273,8 @@
         <!-- Bao -->
         <div class="panel" role="tabpanel" id="p-bao" aria-labelledby="t-bao">
           <div class="panel-intro">
-            <p class="panel-price"><span>All bao</span> £6.5</p>
-            <p class="muted small">All bao contain gluten.</p>
+            <p class="panel-price"><span>Each bao</span> £6.5</p>
+            <p class="muted small">Contains gluten.</p>
           </div>
           <ul class="items">
             <li class="item" data-diet=""><div class="item-row"><h3>Red Braised Pork Belly</h3></div><p>Pickled mustard greens, soy, crushed peanuts &amp; coriander</p></li>
@@ -287,7 +288,7 @@
         <!-- Rice bowls -->
         <div class="panel" role="tabpanel" id="p-bowls" aria-labelledby="t-bowls" hidden>
           <div class="panel-intro">
-            <p class="panel-price"><span>All bowls</span> £18.5</p>
+            <p class="panel-price"><span>Each bowl</span> £18.5</p>
             <p class="muted small">Served with soy, roasted carrots, house pickles, mustard greens &amp; sesame. Classic bowls come with a cured egg yolk.</p>
           </div>
           <h3 class="group-title">Classic</h3>
@@ -607,6 +608,6 @@
     </div>
   </div>
 
-  <script src="main.js?v=3" defer></script>
+  <script src="main.js?v=4" defer></script>
 </body>
 </html>

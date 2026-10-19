@@ -32,10 +32,17 @@
   const header = $('[data-header]');
   const actionBar = $('.action-bar');
   const hero = $('.hero');
+  let lastY = window.scrollY;
   const onScroll = () => {
     const y = window.scrollY;
     header.classList.toggle('is-solid', y > 40);
     actionBar.classList.toggle('is-shown', y > hero.offsetHeight * 0.6);
+    // hide the quick-action bar while scrolling down, bring it back on the way up
+    if (Math.abs(y - lastY) > 6) {
+      const nearBottom = y + window.innerHeight > document.body.scrollHeight - 120;
+      actionBar.classList.toggle('is-hidden', y > lastY && !nearBottom);
+      lastY = y;
+    }
   };
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
