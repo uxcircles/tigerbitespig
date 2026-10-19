@@ -1,0 +1,10 @@
+# Netlify / Cloudflare Pages: keep the old GoDaddy URLs working (Google results, Instagram bio links…)
+/book-now            /book.html             301
+/menu                /#menu                 301
+/about-us            /#about                301
+/visit-us            /#church-street        301
+/contact-us          /#church-street        301
+/saint-pauls-market  /#saint-pauls          301
+/external-catering   /#catering             301
+/faqs                /#faq                  301
+/privacy-policy      /privacy.html          301

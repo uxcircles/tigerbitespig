@@ -1,0 +1,8 @@
+{
+  "name": "Tiger Bites Pig",
+  "short_name": "Tiger Bites Pig",
+  "icons": [{ "src": "/assets/img/icon-512.png", "sizes": "512x512", "type": "image/png" }],
+  "theme_color": "#A8261E",
+  "background_color": "#F3EBDD",
+  "display": "browser"
+}

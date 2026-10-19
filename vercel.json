@@ -1,0 +1,17 @@
+{
+  "cleanUrls": true,
+  "redirects": [
+    { "source": "/book-now", "destination": "/book", "permanent": true },
+    { "source": "/menu", "destination": "/#menu", "permanent": true },
+    { "source": "/about-us", "destination": "/#about", "permanent": true },
+    { "source": "/visit-us", "destination": "/#church-street", "permanent": true },
+    { "source": "/contact-us", "destination": "/#church-street", "permanent": true },
+    { "source": "/saint-pauls-market", "destination": "/#saint-pauls", "permanent": true },
+    { "source": "/external-catering", "destination": "/#catering", "permanent": true },
+    { "source": "/faqs", "destination": "/#faq", "permanent": true },
+    { "source": "/privacy-policy", "destination": "/privacy", "permanent": true }
+  ],
+  "headers": [
+    { "source": "/assets/(.*)", "headers": [{ "key": "Cache-Control", "value": "public, max-age=2592000" }] }
+  ]
+}
