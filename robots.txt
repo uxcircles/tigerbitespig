@@ -1,4 +1,4 @@
+# Concept redesign — keep out of search results so it doesn't compete with the official site.
+# If the restaurant adopts this site, change to "Allow: /" and remove the noindex meta tags.
 User-agent: *
-Allow: /
-
-Sitemap: https://tigerbitespig.co.uk/sitemap.xml
+Disallow: /

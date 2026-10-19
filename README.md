@@ -2,6 +2,10 @@
 
 純靜態網站（HTML / CSS / JS），不需要建置步驟，任何靜態主機都能直接部署。
 
+> **概念設計展示**：這是由 [UX CIRCLES](https://ux-circles.com/web) 設計的改版提案，並非 Tiger Bites Pig 官方網站。
+> 每頁頂端有「概念設計」標示列，所有頁面都設為 `noindex`，`robots.txt` 也禁止搜尋引擎收錄，避免和官方網站搶搜尋結果。
+> 如果店家正式採用：刪掉各頁的 `.concept-bar`、`<meta name="robots" content="noindex, nofollow">`，並把 `robots.txt` 改回 `Allow: /`。
+
 ## 檔案結構
 
 ```
@@ -47,6 +51,8 @@ python3 -m http.server 5173
 | 營業時間 | `main.js` 的 `HOURS`，**以及**中英文 `index.html` 的營業時間表、頁尾和 JSON-LD，中英文 `book.html` 也各有一行 |
 | 菜單 PDF | 直接覆蓋 `assets/menus/` 裡同名的檔案 |
 | 照片 | 放進 `assets/img/`，建議做成 WebP、正方形 450 和 900 兩種寬度 |
+| 改了 CSS／JS | 把各頁 `styles.css?v=4`、`main.js?v=3` 的版本號 +1，避免訪客看到快取的舊版 |
+| 圖示 | 各頁 `<body>` 開頭的 SVG sprite（`#i-ext` `#i-left` `#i-right` `#i-spark`）；勾勾、加號、下拉箭頭在 `styles.css` 的 `--i-*` 變數 |
 
 ## 上線前待確認
 
