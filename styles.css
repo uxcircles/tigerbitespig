@@ -264,23 +264,28 @@ abbr.tag { cursor: help; }
 .concept-inner a { flex-shrink: 0; color: var(--paper); text-decoration: none; letter-spacing: .02em; }
 .concept-inner a strong { letter-spacing: .06em; }
 .concept-inner a:hover { color: #F2B8A4; }
-.concept-inner .concept-official {
-  color: #F2B8A4;
-  text-decoration: underline; text-underline-offset: 3px; text-decoration-color: rgba(242, 184, 164, .45);
-  letter-spacing: 0;
+.concept-inner .concept-long a {
+  flex-shrink: 1; color: inherit; letter-spacing: 0;
+  text-decoration: underline; text-underline-offset: 3px; text-decoration-color: rgba(243, 235, 221, .4);
 }
-.concept-inner .concept-official:hover { color: var(--paper); text-decoration-color: currentColor; }
+.concept-inner .concept-long a:hover { color: #F2B8A4; text-decoration-color: currentColor; }
+@media (max-width: 760px) {
+  .concept-long { display: none; }
+  .concept-short { display: inline; }
+}
+@media (max-width: 400px) {
+  .concept-bar { font-size: 11px; }
+  .concept-inner { gap: 10px; padding-inline: 12px; }
+  .concept-inner p { gap: 7px; }
+  .concept-tag { font-size: 9px; padding: 3px 5px 2px; letter-spacing: .1em; }
+}
 .credit { display: inline-block; margin-left: 10px; }
 .credit a { color: rgba(243, 235, 221, .8); text-underline-offset: 3px; }
 .credit a:hover { color: #F2B8A4; }
 @media (max-width: 640px) {
-  .concept-long { display: none; }
-  .concept-short { display: inline; }
   .credit { display: block; margin: 6px 0 0; }
 }
-@media (max-width: 640px) {
-  .concept-inner .concept-official { display: none; }
-}
+
 
 /* ==========================================================
    Hero
