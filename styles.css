@@ -164,10 +164,15 @@ abbr.tag { cursor: help; }
 }
 .site-header.is-solid {
   background: rgba(243, 235, 221, .92);
-  backdrop-filter: saturate(1.4) blur(14px);
-  -webkit-backdrop-filter: saturate(1.4) blur(14px);
   box-shadow: 0 1px 0 var(--line);
   color: var(--ink);
+}
+/* Blur lives on a pseudo-element: backdrop-filter on the header itself would
+   make it the containing block for the fixed mobile nav and clip it. */
+.site-header.is-solid::before {
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  backdrop-filter: saturate(1.4) blur(14px);
+  -webkit-backdrop-filter: saturate(1.4) blur(14px);
 }
 .header-inner { height: var(--header-h); display: flex; align-items: center; gap: 28px; }
 .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; flex-shrink: 0; }
@@ -415,7 +420,8 @@ abbr.tag { cursor: help; }
 
 .tabs {
   display: flex; gap: 6px;
-  overflow-x: auto; scrollbar-width: none;
+  overflow-x: auto; overflow-y: hidden; scrollbar-width: none;
+  overscroll-behavior-x: contain;
   border-bottom: 1px solid var(--line);
   margin-bottom: 36px;
 }
@@ -433,7 +439,7 @@ abbr.tag { cursor: help; }
 }
 .tabs [role="tab"]:hover { color: var(--ink); }
 .tabs [role="tab"][aria-selected="true"] { color: var(--red); }
-.tabs [role="tab"][aria-selected="true"]::after { content: ""; position: absolute; left: 18px; right: 18px; bottom: -1px; height: 3px; background: var(--red); border-radius: 3px 3px 0 0; }
+.tabs [role="tab"][aria-selected="true"]::after { content: ""; position: absolute; left: 18px; right: 18px; bottom: 0; height: 3px; background: var(--red); border-radius: 3px 3px 0 0; }
 
 .panel { animation: fade .45s var(--ease); }
 @keyframes fade { from { opacity: 0; transform: translateY(8px); } }
@@ -625,6 +631,7 @@ abbr.tag { cursor: help; }
 @media (max-width: 1080px) {
   .footer-grid { grid-template-columns: 1fr 1fr; }
   .drinks { grid-template-columns: 1fr 1fr; }
+  .loc-alt .loc-facts { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 900px) {
@@ -706,7 +713,7 @@ abbr.tag { cursor: help; }
   .hero-cjk { display: none; }
   .status { font-size: 12px; }
   .sig-head .rail-ctrl { display: none; }
-  .loc-facts { grid-template-columns: 1fr; }
+  .loc-facts, .loc-alt .loc-facts { grid-template-columns: 1fr; }
   .loc-facts .span-2 { grid-column: auto; }
   .footer-grid { grid-template-columns: 1fr; }
   .faq-list details p { padding-right: 0; }
