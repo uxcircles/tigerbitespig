@@ -1,0 +1,12 @@
+#!/bin/sh
+# Keep client notes and pitch material out of the public repo, and show open reminders.
+hooks="$(git rev-parse --show-toplevel)/.githooks"
+
+if git diff --cached --name-only | grep -q '^\.private/'; then
+  echo "已擋下：.private/ 是本地私人資料夾，不能 commit。用 git restore --staged .private 移除。" >&2
+  exit 1
+fi
+
+git diff --cached -U0 --no-color | grep '^+' | grep -v '^+++' | sh "$hooks/check-private.sh" || exit 1
+sh "$hooks/remind.sh"
+exit 0

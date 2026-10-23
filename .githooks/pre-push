@@ -1,0 +1,16 @@
+#!/bin/sh
+# Scan everything about to be pushed (including commits made with --no-verify), then show reminders.
+hooks="$(git rev-parse --show-toplevel)/.githooks"
+zero=0000000000000000000000000000000000000000
+status=0
+while read -r local_ref local_sha remote_ref remote_sha; do
+  [ "$local_sha" = "$zero" ] && continue
+  if [ "$remote_sha" = "$zero" ]; then range="$local_sha --not --remotes"; else range="$remote_sha..$local_sha"; fi
+  if git log --name-only --format= $range | grep -q '^\.private/'; then
+    echo "已擋下：要推送的 commit 含有 .private/ 裡的檔案。" >&2
+    status=1
+  fi
+  git log -p --no-color --format= $range | grep '^+' | grep -v '^+++' | sh "$hooks/check-private.sh" || status=1
+done
+sh "$hooks/remind.sh"
+exit $status

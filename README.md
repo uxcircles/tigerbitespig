@@ -11,7 +11,7 @@
 ```
 index.html            首頁（菜單、分店、外燴、FAQ）
 book.html             訂位頁（嵌入 DesignMyNight 訂位工具）
-privacy.html          隱私權政策（草稿，見下方待確認）
+privacy.html          隱私權政策（草稿，上線前需店家補齊資料）
 zh/                   繁體中文版（index / book / privacy）
 styles.css            全站樣式
 main.js               互動：導覽、菜單分頁/篩選、營業狀態、手機底部列
@@ -54,14 +54,14 @@ python3 -m http.server 5173
 | 改了 CSS／JS | 把各頁 `styles.css?v=4`、`main.js?v=3` 的版本號 +1，避免訪客看到快取的舊版 |
 | 圖示 | 各頁 `<body>` 開頭的 SVG sprite（`#i-ext` `#i-left` `#i-right` `#i-spark`）；勾勾、加號、下拉箭頭在 `styles.css` 的 `--i-*` 變數 |
 
-## 上線前待確認
+## 內部筆記
 
-已查證（2026-10-19）：
-- 週日公休：Tiger Bites Pig 官網 Contact Us 頁
-- Saint Pauls Market 地址、營業時間、QR code 點餐：saintpaulsmarket.co.uk
-- 雙人套餐：£45（依 `assets/menus/set-menu.pdf`）
+原網站檢視結果、待店家確認事項和 pitch 資料放在本機的 `.private/`（已被 `.gitignore` 排除，不會進 git）。
 
-還需要店家提供：
-- [ ] **隱私權政策**裡所有黃色標記的欄位：公司名稱與註冊號碼、ICO 登記號、Email 與刷卡服務商、是否有監視器、保存期限、網站主機
-- [ ] 隱私權政策是依 UK GDPR 擬的草稿，不是法律意見，正式上線前建議請專業人士過目
-- [ ] 中文版翻譯請母語人士再順一次，尤其是菜名
+第一次 clone 後啟用 git hooks：
+
+```
+git config core.hooksPath .githooks
+```
+
+之後每次 commit / push 會擋下 `.private/` 的檔案和 `.private/blocklist.txt` 裡的敏感字詞，並列出 `.private/NOTES.md` 裡未完成的待辦。隨時查看：`sh .githooks/remind.sh`
