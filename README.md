@@ -2,7 +2,7 @@
 
 純靜態網站（HTML / CSS / JS），不需要建置步驟，任何靜態主機都能直接部署。
 
-> **概念設計展示**：這是由 [UX CIRCLES](https://ux-circles.com/web) 設計的改版提案，並非 Tiger Bites Pig 官方網站。
+> **概念設計展示**：這是由 [UX CIRCLES](https://ux-circles.com/restaurants) 設計的改版提案，並非 Tiger Bites Pig 官方網站。
 > 每頁頂端有「概念設計」標示列，所有頁面都設為 `noindex`，`robots.txt` 也禁止搜尋引擎收錄，避免和官方網站搶搜尋結果。
 > 如果店家正式採用：刪掉各頁的 `.concept-bar`、`<meta name="robots" content="noindex, nofollow">`，並把 `robots.txt` 改回 `Allow: /`。
 
